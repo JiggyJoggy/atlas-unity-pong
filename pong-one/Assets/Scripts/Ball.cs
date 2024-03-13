@@ -33,15 +33,16 @@ public class Ball : MonoBehaviour
     {
         if (other.CompareTag("Paddle"))
         {
-            if (rb.position.y > other.transform.position.y)
-            {
-                rb.AddForce(Vector2.up * (speed - 600));
-            }
             if (rb.position.y < other.transform.position.y)
             {
-                rb.AddForce(Vector2.down * (speed - 600));
+                rb.AddForce(Vector2.up * 5000);
+            }
+            if (rb.position.y > other.transform.position.y)
+            {
+                rb.AddForce(Vector2.down * 5000);
             }
             rb.velocity *= -1;
+            rb.rotation *= -1;
         }
     }
 
