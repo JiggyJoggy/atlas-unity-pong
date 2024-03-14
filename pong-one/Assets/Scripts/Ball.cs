@@ -39,6 +39,13 @@ public class Ball : MonoBehaviour
             rb.rotation *= -1;
         }
 
+        if (other.CompareTag("Wall"))
+        {
+            float newYDir = rb.velocity.y * -1;
+            Vector2 newVelocity = new Vector2(rb.velocity.x, newYDir);
+            rb.velocity = newVelocity;
+        }
+
         if (other.CompareTag("Goal"))
         {
             GameObject LeftGoal = GameObject.Find("LeftGoal");
