@@ -35,6 +35,7 @@ public class Ball : MonoBehaviour
             {
                 rb.AddForce(Vector2.down * 5000);
             }
+            SpeedUpBall();
             rb.velocity *= -1;
             rb.rotation *= -1;
         }
@@ -44,6 +45,7 @@ public class Ball : MonoBehaviour
             float newYDir = rb.velocity.y * -1;
             Vector2 newVelocity = new Vector2(rb.velocity.x, newYDir);
             rb.velocity = newVelocity;
+            SpeedUpBall();
         }
 
         if (other.CompareTag("Goal"))
@@ -118,5 +120,10 @@ public class Ball : MonoBehaviour
     public void GameOver()
     {
         Debug.Log("We have a winner!");
+    }
+
+    public void SpeedUpBall()
+    {
+        rb.velocity *= 1.04f;
     }
 }
